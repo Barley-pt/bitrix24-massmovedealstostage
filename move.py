@@ -2,15 +2,28 @@ import pandas as pd
 import requests
 import time
 import os
+import tkinter as tk
+from tkinter import filedialog
+
+def select_excel_file():
+    root = tk.Tk()
+    root.withdraw()  # Hide the root window
+    file_path = filedialog.askopenfilename(
+        title="Select Excel File",
+        filetypes=[("Excel files", "*.xlsx *.xls")]
+    )
+    return file_path
 
 def main():
-    print("📤 Bitrix24 Deal Stage Updater")
+    print("📤 Bitrix24 Deal Stage Updater (v2.1)")
 
-    # Prompt for Excel file
-    excel_file = input("Enter the path to your Excel file (e.g., deals.xlsx): ").strip()
-    if not os.path.exists(excel_file):
-        print("❌ File not found. Please check the path.")
+    # GUI file picker
+    print("🔍 Please select your Excel file...")
+    excel_file = select_excel_file()
+    if not excel_file or not os.path.exists(excel_file):
+        print("❌ File not selected or not found.")
         return
+    print(f"📄 File selected: {excel_file}")
 
     # Prompt for Webhook
     webhook_url = input("Enter your full Bitrix24 webhook URL: ").strip()
