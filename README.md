@@ -1,11 +1,6 @@
-# 📤 Bitrix24 Deal Stage Updater
+# Bitrix24 Deal Stage Updater
 
 This script allows you to **bulk update deal stages in Bitrix24** using a webhook and an Excel file with a list of deal IDs.
-
-> ✅ Built with Python + Pandas + Tkinter  
-> 🗂️ Input: Excel file with one column of Deal IDs  
-> 🔄 Output: Updates Bitrix24 deals to a specified `STAGE_ID`  
-> 📝 Creates a log file: `deal_update_log.txt`
 
 ---
 
@@ -18,7 +13,6 @@ Install dependencies with:
 ```bash
 pip install pandas openpyxl requests
 ```
-
 Tkinter is included by default in most Python installations. If not, install it via your package manager:
 
 - **Ubuntu/Debian**: `sudo apt-get install python3-tk`
@@ -26,7 +20,6 @@ Tkinter is included by default in most Python installations. If not, install it 
 - **Windows**: Included
 
 ---
-
 ## 📁 Input Format
 
 Prepare an Excel file (`.xlsx` or `.xls`) with the **first column** containing the `DEAL_ID`s you want to update:
@@ -52,7 +45,7 @@ python move.py
    ```
    https://yourcompany.bitrix24.com/rest/123/abc123/crm.deal.update
    ```
-4. Enter the target **STAGE_ID** (e.g. `C7:UC_XD9O3Q`).
+4. Enter the target **STAGE_ID** (e.g. `C7:UC_XYZABC`).
 5. The script will:
    - Read the deal IDs
    - Update their stage via Bitrix24 API
